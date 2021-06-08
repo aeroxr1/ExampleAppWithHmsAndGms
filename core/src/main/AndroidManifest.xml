@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="aeroxr1.core">
+
+    <application>
+        <activity android:name="aeroxr1.core.aeroxr1.core.qrCodePoc.QrCodeActivity"/>
+        <activity android:name="aeroxr1.core.aeroxr1.core.mapsPoc.MapsActivity" />
+        <activity
+            android:name="aeroxr1.core.pushPoc.PushActivity"
+            android:label="@string/title_activity_push" />
+    </application>
+
+</manifest>

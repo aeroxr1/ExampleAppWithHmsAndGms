@@ -1,0 +1,6 @@
+rootProject.name = "Poc Hms"
+include ':app'
+include ':platform'
+include ':platform-gms'
+include ':platform-hms'
+include ':core'
