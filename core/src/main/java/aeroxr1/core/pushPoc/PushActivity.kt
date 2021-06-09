@@ -1,5 +1,6 @@
 package aeroxr1.core.pushPoc
 
+import aeroxr1.PlatformApplication
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -21,7 +22,8 @@ class PushActivity : AppCompatActivity() {
         binding = ActivityPushBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        pushUtility = (application as PocApplication).pushUtility
+        pushUtility = (application as PlatformApplication).pushUtility
+
         binding.getToken.setOnClickListener {
             getToken()
         }
@@ -36,7 +38,6 @@ class PushActivity : AppCompatActivity() {
         val filter = IntentFilter()
         filter.addAction(PUSH_ACTION)
         registerReceiver(receiver, filter)
-
     }
 
     /**
