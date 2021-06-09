@@ -21,6 +21,7 @@ class PushActivity : AppCompatActivity() {
         binding = ActivityPushBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        pushUtility = (application as PocApplication).pushUtility
         binding.getToken.setOnClickListener {
             getToken()
         }

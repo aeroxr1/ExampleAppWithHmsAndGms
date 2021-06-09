@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PocHms"
-        android:hardwareAccelerated="true">
+        android:hardwareAccelerated="true"
+        android:name=".PocApplication">
 
 
 
