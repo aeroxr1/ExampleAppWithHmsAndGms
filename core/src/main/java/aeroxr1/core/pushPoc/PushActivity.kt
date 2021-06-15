@@ -1,6 +1,5 @@
 package aeroxr1.core.pushPoc
 
-import aeroxr1.PlatformApplication
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -10,11 +9,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import aeroxr1.platform.PushUtility
 import aeroxr1.core.databinding.ActivityPushBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PushActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPushBinding
-    private lateinit var pushUtility: PushUtility // DI service should get you the right push utility impl.
+    @Inject lateinit var pushUtility: PushUtility
     private var receiver: MyReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,6 @@ class PushActivity : AppCompatActivity() {
         binding = ActivityPushBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        pushUtility = (application as PlatformApplication).pushUtility
 
         binding.getToken.setOnClickListener {
             getToken()
