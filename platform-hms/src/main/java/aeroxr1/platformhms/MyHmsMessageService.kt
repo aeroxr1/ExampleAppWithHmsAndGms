@@ -1,13 +1,22 @@
 package aeroxr1.platformhms
 
+import aeroxr1.platform.PlatformMessagingService
 import android.content.Intent
 import android.util.Log
 import com.huawei.hms.push.HmsMessageService
 import com.huawei.hms.push.RemoteMessage
 import com.huawei.hms.push.SendException
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Arrays
+import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class MyHmsMessageService : HmsMessageService() {
+
+    @Inject
+    lateinit var platformMessagingService: PlatformMessagingService
+
     /**
      * When an app calls the getToken method to apply for a token from the server,
      * if the server does not return the token during current method calling, the server can return the token through this method later.
@@ -27,6 +36,7 @@ class MyHmsMessageService : HmsMessageService() {
         } else {
             // This method callback must be completed in 10 seconds. Otherwise, you need to start a new Job for callback processing.
             refreshedTokenToServer(token)
+            platformMessagingService.onNewToken(token)
         }
     }
 

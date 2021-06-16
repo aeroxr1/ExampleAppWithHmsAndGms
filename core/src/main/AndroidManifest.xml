@@ -3,10 +3,11 @@
     package="aeroxr1.core">
 
     <application>
-        <activity android:name="aeroxr1.core.qrCodePoc.QrCodeActivity"/>
-        <activity android:name="aeroxr1.core.mapsPoc.MapsActivity" />
+        <activity android:name=".pushPoc.NotificationActivity"></activity>
+        <activity android:name=".qrCodePoc.QrCodeActivity" />
+        <activity android:name=".mapsPoc.MapsActivity" />
         <activity
-            android:name="aeroxr1.core.pushPoc.PushActivity"
+            android:name=".pushPoc.PushActivity"
             android:label="@string/title_activity_push" />
     </application>
 
