@@ -10,11 +10,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.Arrays
 import javax.inject.Inject
 
-
-@AndroidEntryPoint
 class MyHmsMessageService : HmsMessageService() {
 
-    @Inject
+
     lateinit var platformMessagingService: PlatformMessagingService
 
     /**

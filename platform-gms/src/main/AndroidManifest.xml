@@ -4,7 +4,7 @@
 
     <application>
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name="aeroxr1.platformgms.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

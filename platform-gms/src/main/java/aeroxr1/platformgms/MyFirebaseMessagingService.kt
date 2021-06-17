@@ -14,6 +14,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     @Inject
     lateinit var platformMessagingService: PlatformMessagingService
 
+    override fun onCreate() {
+        super.onCreate()
+    }
+
     /**
      * Called when message is received.
      *

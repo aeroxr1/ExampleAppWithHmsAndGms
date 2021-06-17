@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply plugin: 'dagger.hilt.android.plugin'
 
 // Load keystore
 def keystorePropertiesFile = rootProject.file("keystore.properties");
@@ -12,6 +13,10 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+    hilt {
+        enableAggregatingTask = true
+    }
 
     signingConfigs {
         debug {
@@ -110,4 +115,4 @@ dependencies {
 }
 apply plugin: 'com.huawei.agconnect'
 apply plugin: 'com.google.gms.google-services'
-apply plugin: 'dagger.hilt.android.plugin'
+

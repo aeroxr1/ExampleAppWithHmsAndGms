@@ -38,6 +38,11 @@ android {
     }
 
     flavorDimensions "platform"
+
+    hilt {
+        enableAggregatingTask = true
+    }
+
 }
 
 dependencies {

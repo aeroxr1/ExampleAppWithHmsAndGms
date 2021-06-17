@@ -1,7 +1,7 @@
-package aeroxr1.di
+package aeroxr1.platformgms.di
 
 import aeroxr1.platform.PushUtility
-import aeroxr1.platformhms.HmsPushUtility
+import aeroxr1.platformgms.GmsPushUtility
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -9,9 +9,9 @@ import dagger.hilt.components.SingletonComponent
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class PlatformHmsModule {
+abstract class PlatformGmsModule {
 
     @Binds
-    abstract fun bindHmsPushUtility(impl: HmsPushUtility): PushUtility
+    abstract fun bindGmsPushUtility(impl:GmsPushUtility): PushUtility
 
 }
