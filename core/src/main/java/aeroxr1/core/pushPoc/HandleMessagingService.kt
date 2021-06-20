@@ -10,11 +10,9 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.*
-import javax.inject.Inject
 
-class HandleMessagingService @Inject constructor(@ApplicationContext val applicationContext:Context) : PlatformMessagingService {
+class HandleMessagingService constructor(private val applicationContext:Context) : PlatformMessagingService {
 
     override fun onNewToken(token: String) {
         Log.d(TAG, "New Token: $token")

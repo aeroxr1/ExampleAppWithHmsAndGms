@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
-apply plugin: 'dagger.hilt.android.plugin'
 
 // Load keystore
 def keystorePropertiesFile = rootProject.file("keystore.properties");
@@ -13,10 +12,6 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-
-    hilt {
-        enableAggregatingTask = true
-    }
 
     signingConfigs {
         debug {
@@ -99,9 +94,6 @@ dependencies {
     googleImplementation project(":platform-gms")
     huaweiImplementation project(":platform-hms")
 
-    implementation 'com.google.dagger:hilt-android:2.37'
-    kapt 'com.google.dagger:hilt-compiler:2.37'
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
@@ -115,4 +107,6 @@ dependencies {
 }
 apply plugin: 'com.huawei.agconnect'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
 

@@ -1,19 +1,19 @@
 package aeroxr1.platformhms
 
 import aeroxr1.platform.PlatformMessagingService
+import aeroxr1.platform.platform
 import android.content.Intent
 import android.util.Log
 import com.huawei.hms.push.HmsMessageService
 import com.huawei.hms.push.RemoteMessage
 import com.huawei.hms.push.SendException
-import dagger.hilt.android.AndroidEntryPoint
 import java.util.Arrays
-import javax.inject.Inject
 
 class MyHmsMessageService : HmsMessageService() {
 
-
-    lateinit var platformMessagingService: PlatformMessagingService
+    private val platformMessagingService: PlatformMessagingService by lazy {
+        platform().platformMessagingService
+    }
 
     /**
      * When an app calls the getToken method to apply for a token from the server,

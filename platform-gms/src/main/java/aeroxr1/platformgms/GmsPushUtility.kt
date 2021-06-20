@@ -12,13 +12,12 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
-import javax.inject.Inject
 
 /**
  * Gsm implementation of [PushUtility].
  */
 
-class GmsPushUtility @Inject constructor(): PushUtility {
+class GmsPushUtility: PushUtility {
 
     override fun getId(context: Context, result: (String) -> Unit) {
         val executor: Executor = Executors.newSingleThreadExecutor()

@@ -9,18 +9,20 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import aeroxr1.platform.PushUtility
 import aeroxr1.core.databinding.ActivityPushBinding
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import aeroxr1.platform.platform
 
-@AndroidEntryPoint
 class PushActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPushBinding
-    @Inject lateinit var pushUtility: PushUtility
+    val pushUtility: PushUtility by lazy {
+        platform().pushUtility
+    }
+
     private var receiver: MyReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        platform().analyticsLog.log("PushActivity onCreate()")
         binding = ActivityPushBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)

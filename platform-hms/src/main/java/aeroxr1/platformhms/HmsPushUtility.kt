@@ -1,18 +1,17 @@
 package aeroxr1.platformhms
 
+import aeroxr1.platform.PushUtility
 import android.content.Context
 import android.text.TextUtils
 import android.util.Log
-import aeroxr1.platform.PushUtility
 import com.huawei.agconnect.config.AGConnectServicesConfig
 import com.huawei.hms.aaid.HmsInstanceId
 import com.huawei.hms.common.ApiException
-import javax.inject.Inject
 
 /**
  * Hms implementation of [PushUtility].
  */
-class HmsPushUtility @Inject constructor(): PushUtility {
+class HmsPushUtility: PushUtility {
 
     override fun getId(context: Context, result: (String) -> Unit) {
         val idResult = HmsInstanceId.getInstance(context).aaid
@@ -52,6 +51,6 @@ class HmsPushUtility @Inject constructor(): PushUtility {
     }
 
     companion object{
-        const val TAG:String = "PushImp"
+        const val TAG:String = "HmsPushUtility"
     }
 }

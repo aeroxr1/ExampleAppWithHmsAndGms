@@ -1,18 +1,17 @@
 package aeroxr1.platformgms
 
 import aeroxr1.platform.PlatformMessagingService
+import aeroxr1.platform.platform
 import android.content.Intent
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
-    @Inject
-    lateinit var platformMessagingService: PlatformMessagingService
+    private val platformMessagingService: PlatformMessagingService by lazy {
+        platform().platformMessagingService
+    }
 
     override fun onCreate() {
         super.onCreate()
