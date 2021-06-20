@@ -1,5 +1,6 @@
 package aeroxr1.core.pushPoc
 
+import aeroxr1.core.R
 import aeroxr1.platform.PlatformMessagingService
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -44,6 +45,7 @@ class HandleMessagingService constructor(private val applicationContext:Context)
         val notification = NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL)
             .setContentTitle("title")
             .setContentText("alert")
+            .setSmallIcon(R.mipmap.ic_launcher)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
